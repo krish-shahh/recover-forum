@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<div id="pb-community" data-pb-jwt-login=""></div>
+<!-- Optionally, you can set data-pb-jwt-login="<TOKEN>" to seamlessly pass the user session. Read more here: https://community.peerboard.com/post/136893725 -->
+<script async>(function() {
+  var d = document, c = d.getElementById("pb-community"), n = "2015284335",
+   i = d.createElement("iframe"), p = encodeURIComponent(btoa(d.location.href + ";" 
+    + (localStorage.getItem("PB_SESSION:"+n) || "") +";v1"));
+  if (!c || c.querySelector("iframe.pb-iframe")) return;
+  i.src = "https://pb" + n + ".peerboard.com/" + n + "/embed"
+    + "?_ep=" + p + "&_t=" + Date.now()
+    + "&jwt_login="+c.getAttribute("data-pb-jwt-login")||"";
+  i.height = "1";i.style.opacity = "0.01";i.title = "Community page";
+  i.allow = "execution-while-not-rendered; execution-while-out-of-viewport";i.classList.add("pb-iframe");
+  i.setAttribute("fetchpriority", "high"); i.loading = "eager";
+  c.appendChild(i);
+})();</script>
+<script async defer src="https://static.peerboard.com/embed/embed.v1.js" data-pb-community-id="2015284335"></script>
+<noscript>Please enable JavaScript in your browser to load the community page.</noscript>
+
+</html>
